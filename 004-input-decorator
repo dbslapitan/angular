@@ -1,0 +1,19 @@
+https://angular.dev/guide/components/inputs
+
+Use to pass data from parent to child component.
+
+~~parent component~~
+
+<course-card [card]="cardDataFromParent"><course-card>
+
+
+~~child component~~
+
+.ts: 
+@Input({required: true})
+card: CardModel;
+
+{required: true} - is an optional config
+
+.html: 
+<h1>{{card.title}}</h1>
