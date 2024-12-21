@@ -1,0 +1,7 @@
+Creates a reference on the element in component file. The reference can be used as a argument.
+
+<input (keyup)="onKeyUp(titleValue)" #titleValue/>
+
+#titleValue is the template reference.
+
+The .ts file will now have access to the InputELement.
