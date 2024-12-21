@@ -1,3 +1,5 @@
+Binds the value of a property of an element into a variable in the .ts file.
+
 <input class="demo" [value]="data.title"/>
 
 [value] is the input property syntax

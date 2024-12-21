@@ -1,0 +1,5 @@
+Binds the element's event property into the a function in the .ts file.
+
+<img src="" (click)="onLogoClick()">
+
+(click) = click event, binded to the onLogoClick function on the .ts file.
