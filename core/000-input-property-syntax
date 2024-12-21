@@ -1,0 +1,4 @@
+<input class="demo" [value]="data.title"/>
+
+[value] is the input property syntax
+"data.title" is referring to a object named data with a property of title in the .ts file
