@@ -1,0 +1,9 @@
+https://v17.angular.io/api/common/NgIf
+
+Previous implementation of @if control flow syntax. Only has else statement and using it is cumbersome. Needs to have ng-template with reference.
+
+<h2 *ngIf="course.id === 2; else noImage">No image available</h2>
+
+<ng-template #noImage>
+    <img src="" alt="">
+</ng-template>

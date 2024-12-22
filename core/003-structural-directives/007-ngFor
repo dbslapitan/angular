@@ -1,3 +1,5 @@
 https://v17.angular.io/api/common/NgFor
 
 Previous implementation of @for control flow syntax.
+
+<course-card *ngFor="let course of COURSES" [course]="course" (courseSelected)="onCourseSelected(course)" />
