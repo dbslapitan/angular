@@ -1,0 +1,11 @@
+https://v17.angular.io/api/core/for
+
+Use for-of syntax in view(.html) to loop components.
+
+.html:
+
+<div>
+@for (course of courses; track course.id){
+    <course-card [course]="course"/>
+}
+</div>
