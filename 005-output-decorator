@@ -1,3 +1,5 @@
+https://v17.angular.io/api/core/Output
+
 Pass data from child component to parent component. Can also create custom event.
 
 
@@ -9,6 +11,8 @@ Passing data from child to parent:
     ie: courseSelected in <course-card (courseSelected)="<handle event>"></course-card>
 4. Create a function to handle the custom event with "$event" parameter. The event parameter is the emitted value.
     ie: onCourseSelected($event)
+
+Note: You can rename the custom event name(component property) by specifying a string on the output decorator. ie: @Output('courseEmitted')
 
 ~~Child Componenent
 .ts:
