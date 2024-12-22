@@ -1,0 +1,27 @@
+Pass data from child component to parent component. Can also create custom event.
+
+
+Passing data from child to parent:
+
+1. At child component declare a property with an output decorator. The variable is an EventEmitter and becomes a property of the component.
+2. Bind an event on child component to emit data.
+3. On the parent component, add the property to the child component being used, this becomes a custom event.
+    ie: courseSelected in <course-card (courseSelected)="<handle event>"></course-card>
+4. Create a function to handle the custom event with "$event" parameter. The event parameter is the emitted value.
+    ie: onCourseSelected($event)
+
+~~Child Componenent
+.ts:
+@Output()
+  courseSelected = new EventEmitter<Course>();
+
+onViewClick(){
+    console.log("View Clicked...");
+    this.courseSelected.emit(this.course);
+}
+
+.html:
+<button (click)="onViewClick()">View Course</button>
+
+~~Parent component
+<course-card (courseSelected)="onCourseSelected($event)" [course]="COURSES[0]"></course-card>

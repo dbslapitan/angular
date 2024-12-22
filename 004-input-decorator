@@ -1,4 +1,6 @@
 https://angular.dev/guide/components/inputs
+https://angular.dev/api/core/Input
+https://v17.angular.io/api/core/Input
 
 Use to pass data from parent to child component.
 
