@@ -23,6 +23,6 @@ trackCourse(index: number, course: Course){
 
 .html:
 
-@for (course of courses; track trackCourse){
+@for (course of courses; track trackCourse($index, course)){
     <course-card [course]="course"/>
 }
