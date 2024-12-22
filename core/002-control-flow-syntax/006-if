@@ -2,6 +2,7 @@ https://v17.angular.io/api/core/for
 
 Use for-of syntax in view(.html) to loop components.
 
+
 .html:
 
 <div>
@@ -9,3 +10,19 @@ Use for-of syntax in view(.html) to loop components.
     <course-card [course]="course"/>
 }
 </div>
+
+
+
+
+You can create a track function instead:
+
+.ts:
+trackCourse(index: number, course: Course){
+    return course.id;
+}
+
+.html:
+
+@for (course of courses; track trackCourse){
+    <course-card [course]="course"/>
+}
