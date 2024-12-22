@@ -1,0 +1,11 @@
+Use if syntax in view(.html) to loop components.
+
+@if(course.id === 1){
+    <h1>ID is 1</h1>
+}
+@else if(course.id === 2){
+    <h1>ID is 2</h1>
+}
+@else{
+    <h1>ID is not 1 or 2</h1>
+}
