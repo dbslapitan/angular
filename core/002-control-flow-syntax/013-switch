@@ -1,0 +1,18 @@
+https://angular.dev/api/core/@switch#
+
+
+Use switch syntax on html, better than ngSwitch.
+
+
+.html:
+@switch (course.category){
+    @case ("BEGINNER"){
+      <p>BEGINNER</p>
+    }
+    @case ("INTERMEDIATE"){
+      <p>INTERMEDIATE</p>
+    }
+    @default {
+      <p>ADVANCED</p>
+    }
+  }
