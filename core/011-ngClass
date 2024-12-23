@@ -1,0 +1,27 @@
+https://angular.dev/api/common/NgClass?tab=usage-notes
+
+Useful when adding styles conditionally. Accepts string, array of string, or object with classnames as boolean properties.
+
+Best use is to call a function that outputs an object with class properties applied.
+
+
+.ts:
+cardClasses(){
+    if(this.course.category === 'BEGINNER'){
+      return {
+        beginner: true,
+        intermediate: false,
+        advanced: false
+      }
+    }
+    else{
+        return {
+        beginner: false,
+        intermediate: false,
+        advanced: false
+      }
+    }
+}
+
+.html
+    <div class="course-card" [ngClass]="cardClasses()">...</div>
