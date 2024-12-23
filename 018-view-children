@@ -1,0 +1,18 @@
+https://v17.angular.io/api/core/ViewChildren
+https://angular.dev/api/core/viewChildren#
+
+Get all templates that matches. Can use changes at AfterViewInit
+
+.ts:
+@ViewChildren(CourseCardComponent)
+  cards: QueryList<CourseCardComponent>;
+
+@ViewChildren(CourseCardComponent, {read: ElementRef})
+  cards: QueryList<ElementRef>;
+
+
+
+
+  ngAfterViewInit(): void {
+    this.cards.changes.subscribe(changes => {console.log(changes);});
+  }

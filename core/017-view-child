@@ -2,7 +2,7 @@ https://angular.dev/api/core/viewChild?tab=usage-notes
 https://v17.angular.io/api/core/ViewChild
 
 
-Get the first element that matches. Will populate on AfterViewInit Lifecycle and cannot query on grand child.
+Get the first template that matches. Will populate on AfterViewInit Lifecycle and cannot query on grand child.
 
 .ts:
 
