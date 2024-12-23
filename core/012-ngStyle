@@ -1,0 +1,16 @@
+https://angular.dev/api/common/NgStyle?tab=usage-notes
+
+Add style depending on the data. Use ngClass as much as possible.
+
+.ts:
+    cardStyles(){
+        return {
+        backgroundImage: `url(${this.course.iconUrl})`,
+        }
+  }
+
+
+.html:
+<div class="course-card" [ngClass]="cardClasses()" [ngStyle]="cardStyles()">
+    ...
+</div>
