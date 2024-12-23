@@ -1,0 +1,12 @@
+https://angular.dev/guide/templates/ng-container#
+
+A special element in Angular that groups multiple elements together or marks a location in a template without rendering a real element in the DOM. Used to apply directives without adding additional element on it.
+
+  <ng-container [ngSwitch]="course.category">
+    <ng-container>
+        <p class="category" *ngSwitchCase="'BEGINNER'">Beginner</p>
+    </ng-container>
+    <p class="category" *ngSwitchCase="'INTERMEDIATE'">Intermediate</p>
+    <p class="category" *ngSwitchCase="'ADVANCED'">Advanced</p>
+    <p class="category" *ngSwitchDefault>Advanced</p>
+  </ng-container>
