@@ -1,0 +1,11 @@
+https://v17.angular.io/api/common/NgSwitch
+
+Previous implementation of switch, use @switch if possible.
+
+.html:
+ <div class="course-category" [ngSwitch]="course.category">
+    <p class="category" *ngSwitchCase="'BEGINNER'">Beginner</p>
+    <p class="category" *ngSwitchCase="'INTERMEDIATE'">Intermediate</p>
+    <p class="category" *ngSwitchCase="'ADVANCED'">Advanced</p>
+    <p class="category" *ngSwitchDefault>Advanced</p>
+  </div>
