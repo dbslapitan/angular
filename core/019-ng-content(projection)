@@ -3,7 +3,7 @@ https://v17.angular.io/api/core/ng-content
 
 Allows adding of elements inside component dynamically. Any elements that was put between the openning and the closing tag of a custom element will be display on the ng-content tag inside the compoent.
 
-Adding select property on ng-content will filter elements to project.
+Adding select property on ng-content will filter elements or components to project.
 
 Can have multiple projections in a component and can use select to filter or any element that was not filtered will get projected on the one with no select.
 

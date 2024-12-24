@@ -1,0 +1,19 @@
+https://angular.dev/api/core/contentChild?tab=usage-notes
+https://v17.angular.io/api/core/ContentChild
+
+Projected content cannot be querried using ViewChild decorator. It can be querried using @ContentChild decorator and it works like VIewChild but only for projected content.
+
+@ContentChild is used within a component with ng-content in it.
+
+Can also query components if projected content is a component.
+
+parent component:
+<course-card>
+    <img class="course-image" src="" #imageEl/>
+</course-card>
+
+course-card component:
+
+.ts
+ @ContentChild('imageEl')
+  imageEl: ElementRef;
