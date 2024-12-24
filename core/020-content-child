@@ -7,6 +7,8 @@ Projected content cannot be querried using ViewChild decorator. It can be querri
 
 Can also query components if projected content is a component.
 
+Populated on AfterContentInit Lifecycle hook.
+
 parent component:
 <course-card>
     <img class="course-image" src="" #imageEl/>
