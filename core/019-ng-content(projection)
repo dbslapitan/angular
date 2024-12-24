@@ -1,0 +1,20 @@
+https://angular.dev/guide/templates/ng-content#
+https://v17.angular.io/api/core/ng-content
+
+Allows adding of elements inside component dynamically. Any elements that was put between the openning and the closing tag of a custom element will be display on the ng-content tag inside the compoent.
+
+Adding select property on ng-content will filter elements to project.
+
+Can have multiple projections in a component and can use select to filter or any element that was not filtered will get projected on the one with no select.
+
+parent component:
+
+<course-card>
+    <img class="course-image" src=""/>
+</course-card>
+
+course-card component
+
+<div>
+    <ng-content select=".course-image"><ng-content>   --> will put the image element from parent. WIth select only matched selector will be projected
+</div>
