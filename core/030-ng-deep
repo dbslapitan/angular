@@ -1,0 +1,32 @@
+::ng-deep - bypasses the view encapsulation. It's deprecated and suggested not to be used.
+
+Course Card Component:
+<div class="course-card">
+    <ng-content select=".course-description"></ng-content>
+</div>
+
+Parent Component:
+<course-card>
+        <div class="course-description">
+            {{ course.longDescription }}
+        </div>
+</course-card>
+
+Since course-description class is a projection, if we select the style inside course-card component, it will not get selected because of the view encapsulation.
+
+This won't work on Course Card Component CSS because of view encapsulation:
+.course-card .course-description {
+    max-width: 360px;
+    margin: 0 auto;
+    margin-top: 15px;
+    user-select: none;
+}
+
+We can add ::ng-deep before .course-description to bypass this
+
+.course-card ::ng-deep .course-description {
+    max-width: 360px;
+    margin: 0 auto;
+    margin-top: 15px;
+    user-select: none;
+}

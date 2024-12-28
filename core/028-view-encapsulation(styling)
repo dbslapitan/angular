@@ -1,0 +1,1 @@
+By default styles are applied only to the components where the css was declared. It is not visible to parent or child.
