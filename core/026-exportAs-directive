@@ -1,0 +1,29 @@
+exportAs is added as a property at the @Directive decorator. It makes the directive viewable by ViewChild and can be put as a value on the templateRef.
+
+@Directive({
+  selector: '[highlighted]',
+  exportAs: 'hl',
+})
+
+...
+
+  toggle(){
+    this.isHighlighted = !this.isHighlighted;
+    this.toggleEvent.emit(this.isHighlighted);
+  }
+
+Using templateReference:
+
+<course-card highlighted (toggleEvent)="toggleEmit($event)" #highlighter="hl">
+    <div class="course-description" (dblclick)="highlighter.toggle()">
+        {{ course.longDescription }}
+    </div>
+</course-card>
+
+Explanation:
+1. use exportAs value as the value for the templateRef. (ie. #highlighter="hl")
+2. use the ref to trigger toggle. (ie. (dblclick)="highlighter.toggle()")
+
+Using viewChild():
+@ViewChild(CourseCardComponent, {read: HighlightedDirective})
+highlighted: HighlightedDirective;
