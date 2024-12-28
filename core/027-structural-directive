@@ -1,0 +1,36 @@
+Structural Directives:
+
+Uses star syntax like *ngIf.
+It is always good to add ngx- as a prefix to the custom structural directive to mean its angular extended feature.
+The star syntax is just a shorthand and will be transformed to a template on compile time.
+    ei. <div *ngIf="true"></div> ---> <ng-template [ngIf]="true"><div></div></ng-template>
+
+Steps to create a custom structural directive:
+1. using cli generate a regular directive.
+2. add an argument on the constructor with a TemplateRef class with any generic.
+3. add another argument on the constructor with a ViewContainerRef class which will be used to embed the template.
+4. create a setter for the conditional statement to be used and the logic as to when the template to be displayed.
+
+directive:
+export class NgxUnlessDirective {
+
+  visible = false;
+
+  constructor(private templateRef: TemplateRef<any>, private viewContainer: ViewContainerRef) {
+  }
+
+  @Input()
+  set ngxUnless(condition: boolean) {
+    if(!condition && !this.visible) {
+      this.viewContainer.createEmbeddedView(this.templateRef);
+      this.visible = true;
+    }
+    else if(condition && this.visible) {
+      this.viewContainer.clear();
+      this.visible = false;
+    }
+  }
+}
+
+.html:
+<course-image [src]="course.iconUrl" *ngxUnless="!course.iconUrl" />
