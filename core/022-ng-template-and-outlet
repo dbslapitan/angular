@@ -1,0 +1,42 @@
+ng-template
+
+Creates a template that Will not be displayed by default unless was refenced to display. The template can access the variables of the context on which it is embedded.
+Can be defined in one component and pass it as input in other components by filling its context.
+YOu can add variables so you could put context on it.
+
+
+Elements or ng-container with *ngTemplateOutlet can be used to display the contents on ng-template if reference.
+You can add context so that the ngtemplate can use it.
+
+Steps:
+1. Create an template using ng-template.
+2. Add a reference to the template. (TemplateRef; ie. #blankImage)
+3. Declare variables in the template if dynamic data is needed. (ie. let-courseName="description")
+4. Pass it as an input on the components that would display it. (ie. @Input() noImgTpl: TemplateRef<any>)
+5. Use ngTemplateOutlet on the component to display the templateRef and add context if there are dynamic data.
+(ie. <ng-container *ngTemplateOutlet="noImgTpl; context: {description: 'text'}">)
+
+Not course-card component: 
+ <ng-template #blankImage let-courseName="description">
+    <p class="warn">{{courseName}} has no Image yet.</p>
+    <img src="/assets/empty-image.png" alt="">
+  </ng-template>
+
+  <course-card [imgTpl]="blankImage"></course-card>
+
+
+course card component:
+
+.ts:
+@Input()
+imagetpl: TemplateRef<any>
+
+.html
+<ng-container *ngTemplateOutlet="blankImage; context: {description: 'Dirk'}">
+
+</ng-container>
+
+  let-courseName is a variable that can be used withing the template.
+  description is the reference from the context in the ng-container with *ngTemplateOutlet directive.
+
+  
