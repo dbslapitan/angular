@@ -1,0 +1,2 @@
+Generating a directive using angular CLI.
+ng g d directives/highlighted

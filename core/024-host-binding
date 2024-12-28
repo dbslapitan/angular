@@ -1,0 +1,41 @@
+https://angular.dev/api/core/HostBinding
+
+Used to bind a property of the DOM element. Use in a directive.
+The selector of the directive can be used as input. (ie. @Input('<name of input property>'))
+
+On a directive:
+
+@Input('highlighted')
+isHighlighted = false ;     --> default value is false
+
+Explanation:
+1. highlighted ha a default value of false so it's ok to just use highlighted without brackets and value.
+
+...
+
+@HotBinding('className')
+get cssClasses(){
+    return 'highlighted';
+}
+
+Explanation:
+1. Binds to the className property of the element.
+2. The get method add highlighted class on class property.
+
+Another way to bind:
+@HotBinding('class.highlighted')
+get cssClasses(){
+    return true;
+}
+
+Binding on style:
+  @HostBinding('style.border')
+  get cssClasses() {
+    return "1px solid red";
+  }
+
+
+
+.html:
+<course-card [highlighted]="true"></course-card>
+
