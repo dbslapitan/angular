@@ -1,0 +1,34 @@
+https://angular.dev/api/core/HostListener#
+
+Use by directives to interact with the event on a component or element.
+
+highlighted directed:
+@HostListener('mouseover')
+  mouseOver() {
+    this.isHighlighted = true;
+    this.toggleEvent.emit(this.isHighlighted);
+  }
+
+  @HostListener('mouseleave', ['$event'])
+  mouseLeave($event: MouseEvent) {
+    console.log($event);
+    this.isHighlighted = false;
+  }
+
+  Explanation:
+  1. binds to the mouseover and mouseleave event, the 2nd arguments are for the event itself and additional arguments.
+
+
+directive can also trigger a custom event:
+
+ @Output()
+  toggleEvent = new EventEmitter();
+
+parent component:
+.ts:
+    toggleEmit(value: boolean) {
+      console.log(value);
+    }
+
+.html:
+ <course-card highlighted (toggleEvent)="toggleEmit($event)">
