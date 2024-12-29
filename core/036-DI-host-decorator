@@ -1,0 +1,4 @@
+@Host decorator can be used in a custom directive DI. It will only use the provider of the component where the directive is applied.
+
+Constructor at custom directive:
+constructor(@Host() private courseService: CoursesService)
