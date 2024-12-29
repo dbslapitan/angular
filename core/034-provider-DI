@@ -1,0 +1,59 @@
+How to create a provider or DI: https://angular-university.io/lesson/angular-di-providers-injection-tokens
+
+
+Steps to manually add provider for DI:
+
+1. Create a factory function.
+    ie.
+    function courseServiceProvider(http: HttpClient): CoursesService {
+        return new CoursesService(http);
+    }
+2. Create an Injection Token. All dependencies require a unique token.
+    ie. const COURSES_SERVICE = new InjectionToken<CoursesService>('COURSES_SERVICE');
+3. Add provider on the @Component where the DI is needed.
+    provide - Injection Token
+    useFactory - Factory Function
+    deps - Dependencies that was used in the Factory Function
+
+    ie.
+    @Component({
+    selector: 'course-card',
+    templateUrl: './course-card.component.html',
+    styleUrls: ['./course-card.component.css'],
+    standalone: false,
+    providers: [{
+      provide: COURSES_SERVICE,
+      useFactory: courseServiceProvider,
+      deps: [HttpClient]
+    }]})
+4. Use @Inject decorator with the Injection token as argument on the construction arguments.
+    ie. constructor(@Inject(COURSES_SERVICE) private coursesService: CoursesService) {}
+
+Note:
+You can use the class name as the value for provide and remove the Injection Token Declaration.
+You can use useClass and remove the useFactory, Factory Function, deps and the @Inject syntax on constructor.
+    ie.
+    @Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css'],
+        standalone: false,
+        providers: [{
+            provide: CoursesService,
+            useClass: CoursesService
+    }]})
+    constructor(private coursesService: CoursesService) {}
+
+You can also pass the class as providers and don't need the object but you have to add @Injectable() on the Service.
+    @Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css'],
+        standalone: false,
+        providers: [CoursesService]
+    })
+
+At Service:
+
+@Injectable()
+export class CoursesService {...}
