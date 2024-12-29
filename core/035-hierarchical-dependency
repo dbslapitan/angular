@@ -1,0 +1,9 @@
+Every component that has a dependency injected to it would first check if it has its own provider then would check the parent if doesn't.
+It will use the closest dependency it finds.
+
+You can declare decorator on the DI at constructor.
+@Optional() - If the provider is not found on DI, app will not crash, but will error when the DI is used.
+@Self() - will only check the providers of the component where the DI is declared.
+@SkipSelf() - will not search the component for the provider where the DI is declared, will only search for the parent.
+
+constructor(@Optional() private http: HttpClient) { }
