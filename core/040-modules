@@ -1,1 +1,19 @@
 Modules - organizational unit that we can put together components, directives, services amd pipes that are related.
+
+Modules are class with @NgModule Decorator with config.
+
+@NgModule Config:
+    declarations - all components, directives and pipes that are part of the module
+    imports - dependent modules that the module requires
+    providers - for services that the app needs 
+        ie. instead of tree-shakable provider or adding it in the component, we can put it in the root module
+    bootstrap - identifies the root component of the app
+        ie. the app-root element
+    export - all components, directives and pipes that we want other module to use
+
+
+Creating a module steps:
+
+1. scaffold using angular cli: ng g m <Module Name>
+2. Move from old declarations to new declarations
+3. Import the new module to the old appmodule
