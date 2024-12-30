@@ -1,0 +1,10 @@
+Change Detection Mechanisms:
+default: Every expression in the template gets evaluated and triggers a rerender if an expression changes. Events and custom events will trigger a scan.
+OnPush: Better performance. Observables expressions and input decorators(not mutations) trigger a rerender. Will also trigger a check on async pipes on the template.
+    Ways to trigger rerendering:
+        1. Input Decorators
+        2. Async pipes
+
+
+Changing change detection mechanism:
+Change the changeDetection property of the config object of @Component Directive to ChangeDetectionStrategy.OnPush.
