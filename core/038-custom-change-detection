@@ -1,0 +1,10 @@
+You can inject ChangeDetectorRef to add when to rerender a component.
+
+constructor(private coursesService: CoursesService, private cd: ChangeDetectorRef)
+
+ngOnInit() {
+    this.coursesService.loadCourses().subscribe(courses => {
+      this.courses = courses;
+      this.cd.markForCheck();
+    });
+  }
