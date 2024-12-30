@@ -1,0 +1,25 @@
+OnInit = called once, on initialization, data gets populated.
+OnDestroy = called once, when a component gets destroyed. Useful for releasing any resources the component is using like unsubscribing observables.
+OnChanges = Triggers one time on intialization and triggers when data changes but not with mutation. Has a changes arguments to see which data changed.
+
+    ngOnChanges(changes){
+        console.log(changes);
+    }
+AfterContentChecked = Triggers every render. Triggers after checking the projections. Great for last modifications of data. Will error out if the modified data is in content projection.
+AfterViewChecked = Triggers after content was checked. Last to trigger. Useful for scrolling at the bottom of the page or setting focus.
+
+DoCheck
+AfterViewInit = ViewChild or ViewChildren query.
+AfterContentInit = ContentChild or ContentChildren query.
+
+Notes:
+OnInit, AfterContentInit, and AfterViewInit triggers only once.
+
+
+Order of trigger:
+
+Initial: 
+contructor -> OnChanges -> OnInit -> DoCheck -> AfterContentInit -> AfterContentChecked -> AfterViewInit -> AfterViewChecked 
+
+Everytime change detection run:
+OnChanges -> DoCheck -> AfterContentChecked -> AfterViewChecked
