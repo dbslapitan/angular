@@ -1,0 +1,23 @@
+Notes:
+ - scaffold using cli: ng g p <Pipe Name>
+ - transform arguments
+    1st argument is the type of data that needs to be transformed
+    2nd and consecutive arguments are arguments of the pipe
+
+Pipe File:
+
+@Pipe({
+  name: 'filterByCategory'
+})
+export class FilterCategoryPipe implements PipeTransform {
+
+  transform(courses: Course[], category: string): Course[] {
+
+    return courses.filter(course => course.category === category);
+  }
+
+}
+
+HTML file:
+
+@for (course of (courses | filterByCategory: "ADVANCED"); track course.id)
